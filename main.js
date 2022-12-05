@@ -1,10 +1,11 @@
+// Test 2
 
 // ISO
 
 var isoSlider = document.getElementById("iso");
 var isoTooltip = document.getElementById("isoTooltip");
 
-isoTooltip.innerHTML = isoSlider.value;                                    // Vise ISO fra start
+isoTooltip.innerHTML = isoSlider.value;                                    // Vise ISO fra starten
 
 isoSlider.oninput = function() {                                           // Oppdatere ISO ved input
   isoTooltip.innerHTML = this.value;
