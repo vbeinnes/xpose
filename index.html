@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xpose - Exposure calculator</title>
+
+  <!-- Henter CSS-->
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+  <body>
+    <p class="header">Initial exposure settings:</p>
+
+    <div class="slider-container">
+      <p class="slider-label">ISO</p>
+      <input type="range" min="50" max="3200" value="800" step="50" class="slider" id="iso">
+      <span id="isoTooltip"></span>
+    </div>
+
+    <div class="slider-container">
+      <p class="slider-label">Apperture</p>
+      <input type="range" min="0" max="10" value="3" step="1" class="slider" id="apperture">        
+      <div class="prefix">
+        <p>f/</p>
+        <span id="appertureTooltip"></span>
+      </div>
+    </div>
+
+    <div class="slider-container">
+      <p class="slider-label">Shutter speed</p>
+      <input type="range" min="0" max="18" value="4" step="1" class="slider" id="shutterspeed">
+      <div class="prefix">     
+        <span id="shutterspeedTooltip"></span>
+        </p>s</p>
+      </div>
+    </div>
+
+    <div class="result">
+      <p>EV: </p>
+      <span id="ev"></span>
+    </div>
+
+
+
+
+
+
+    <p class="header">New exposure settings:</p>
+
+    <div class="slider-container">
+      <p class="slider-label">ISO</p>
+      <input type="range" min="50" max="3200" value="800" step="50" class="slider" id="newIso">  
+      <span id="newIsoTooltip"></span>
+    </div>
+
+    <div class="slider-container">
+      <p class="slider-label">Apperture</p>
+      <input type="range" min="0" max="10" value="3" step="1" class="slider" id="newApperture">        
+      <div class="prefix">
+        <p>f/</p>
+        <span id="newAppertureTooltip"></span>
+      </div>
+    </div>
+
+    <div class="slider-container">
+      <p class="slider-label">ND filter</p>
+      <input type="range" min="0" max="10" value="0" step="1" class="slider" id="nd">        
+        <span id="ndTooltip"></span>
+    </div>
+
+    <div class="slider-container">
+      <p class="slider-label">Reciprocity factor</p>
+      <input type="range" min="1" max="1.5" value="1" step="0.01" class="slider" id="reciprocity">        
+      <span id="reciprocityTooltip"></span>
+    </div>
+
+
+
+    <div class="result">
+      <p>New shutter speed: </p>
+      <span id="newShutterspeed"></span>
+    </div>
+
+    
+
+
+    <!-- Henter JS-->
+    <script src="main.js"></script>
+  </body>
+</html>
