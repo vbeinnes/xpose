@@ -1,5 +1,4 @@
 
-
 // ------------------------------------------------------------------------------------------------------------------------
 // Slidere fra HTML
 // Verdier fra HTML som skal oppdateres ved input
@@ -64,13 +63,13 @@ function displayNewShutterspeed(){
   let ssNd = newShutterspeedResult * (2 ** ndValue);
 
   if (ssNd < 1) {
-    newShutterspeed.innerHTML = (ssNd.toFixed(3) + "s");
+    newShutterspeed.innerHTML = (ssNd.toFixed(3) + " seconds");
   } else {
     let reciprocityFactor = parseFloat(reciprocitySlider.value);
     let ssReciprocity = (ssNd ** reciprocityFactor);
     
     if (ssReciprocity < 60) {
-      newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + "s");
+      newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + " seconds");
     } else {
       newShutterspeed.innerHTML = secondsToDhms(Math.round(ssReciprocity));
     }
