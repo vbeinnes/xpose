@@ -2,6 +2,7 @@
 // ------------------------------------------------------------------------------------------------------------------------
 // Slidere fra HTML
 // Verdier fra HTML som skal oppdateres ved input
+// Andre verdier
 // ------------------------------------------------------------------------------------------------------------------------
 
 var isoSlider = document.getElementById("iso");
@@ -29,7 +30,6 @@ var evResult = document.getElementById("ev");
 
 var newShutterspeed = document.getElementById("newShutterspeed");
 
-// Andre verdier
 
 const appertureValues = [1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16, 22, 32];
 
@@ -71,29 +71,28 @@ function displayNewShutterspeed(){
     if (ssReciprocity < 60) {
       newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + " seconds");
     } else {
-      newShutterspeed.innerHTML = secondsToDhms(Math.round(ssReciprocity));
+      newShutterspeed.innerHTML = convertSeconds(Math.round(ssReciprocity));
     }
   }   
 }
 
-// Funksjon: Fra sek. til ddddddd:hh:mm:ss (Modifisert fra funkson på nett:)
-// https://stackoverflow.com/questions/36098913/convert-seconds-to-days-hours-minutes-and-seconds
 
-function secondsToDhms(seconds) {
+// Funksjon laget i samarbeid med https://chat.openai.com/, og modifisert med å bare vise det som ikke er 0.
+
+function convertSeconds(seconds) {
   seconds = Number(seconds);
-  var d = Math.floor(seconds / (3600*24));
-  var h = Math.floor(seconds % (3600*24) / 3600);
-  var m = Math.floor(seconds % 3600 / 60);
-  var s = Math.floor(seconds % 60);
-  
-  var dDisplay = d > 0 ? d + ("d ") : "";
-  var hDisplay = h > 0 ? h + ("h ") : "";
-  var mDisplay = m > 0 ? m + ("m ") : "";
-  var sDisplay = s > 0 ? s + ("s ") : "";
-  return dDisplay + hDisplay + mDisplay + sDisplay;
+  const days = Math.floor(seconds / (24 * 60 * 60));
+  const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60));
+  const minutes = Math.floor((seconds % (60 * 60)) / 60);
+  const remainingSeconds = seconds % 60;
+
+  const daysShown = days > 0 ? days + ("d ") : "";
+  const hoursShown = hours > 0 ? hours + ("h ") : "";
+  const minutesShown = minutes > 0 ? minutes + ("m ") : "";
+  const secondsShown = remainingSeconds > 0 ? remainingSeconds + ("s ") : "";
+
+  return daysShown + hoursShown + minutesShown + secondsShown;
 }
-// Hjemmelaget alternativ som maxer på 23 timer og 59 min:
-// newShutterspeed.innerHTML = (new Date(Math.round(ssReciprocity * 1000)).toISOString().slice(11, 19) + " (hh:mm:ss)");
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Sett alle verdier fra slidere og utregnede verdier - FRA OPPSTART
@@ -106,68 +105,47 @@ newAppertureResult.innerHTML = appertureValues[newAppertureSlider.value];
 shutterspeedResult.innerHTML = shutterspeedValues[shutterspeedSlider.value]; 
 ndResult.innerHTML = (ndSlider.value + " stops");
 reciprocityResult.innerHTML = reciprocitySlider.value;
-
 displayEv();
-
 displayNewShutterspeed();
 
 // ------------------------------------------------------------------------------------------------------------------------
-// Sett alle verdier fra slidere - VED INPUT
-// ------------------------------------------------------------------------------------------------------------------------
-
-isoSlider.oninput = function() {
-  isoResult.innerHTML = this.value;
-}
-newIsoSlider.oninput = function() {
-  newIsoResult.innerHTML = this.value;
-}
-appertureSlider.oninput = function() {
-  appertureResult.innerHTML = appertureValues[this.value];
-}
-newAppertureSlider.oninput = function() {
-  newAppertureResult.innerHTML = appertureValues[this.value];
-}
-shutterspeedSlider.oninput = function() {
-  shutterspeedResult.innerHTML = shutterspeedValues[this.value];
-}
-ndSlider.oninput = function() {
-  ndResult.innerHTML = (ndSlider.value + " stops");
-}
-reciprocitySlider.oninput = function() {
-  reciprocityResult.innerHTML = this.value;
-}
-
-// ------------------------------------------------------------------------------------------------------------------------
-// Oppdatere evResult OG newShutterspeed ved input på en av tre øvre sliderne
+// Oppdatere slider-verdier, evResult OG newShutterspeed ved input på en av tre øvre sliderne
 // ------------------------------------------------------------------------------------------------------------------------
 
 document.getElementById("iso").addEventListener('input',() => {
+  isoResult.innerHTML = isoSlider.value;
   displayEv();
   displayNewShutterspeed();   
 });
 document.getElementById("apperture").addEventListener('input',() => {
+  appertureResult.innerHTML = appertureValues[appertureSlider.value];
   displayEv();
   displayNewShutterspeed();    
 });
 document.getElementById("shutterspeed").addEventListener('input',() => {
+  shutterspeedResult.innerHTML = shutterspeedValues[shutterspeedSlider.value];
   displayEv();
-  displayNewShutterspeed(); 
+  displayNewShutterspeed();
 });
 
 // ------------------------------------------------------------------------------------------------------------------------
-// Oppdatere BARE newShutterspeed ved input på en av fire nedre sliderne
+// Oppdatere BARE slider-verdier og newShutterspeed ved input på en av fire nedre sliderne
 // ------------------------------------------------------------------------------------------------------------------------
 
 document.getElementById("newIso").addEventListener('input',() => {
+  newIsoResult.innerHTML = newIsoSlider.value;
   displayNewShutterspeed();  
 });
 document.getElementById("newApperture").addEventListener('input',() => {
+  newAppertureResult.innerHTML = appertureValues[newAppertureSlider.value];
   displayNewShutterspeed(); 
 });
 document.getElementById("nd").addEventListener('input',() => {
+  ndResult.innerHTML = (ndSlider.value + " stops");
   displayNewShutterspeed(); 
 });
 document.getElementById("reciprocity").addEventListener('input',() => {
+  reciprocityResult.innerHTML = reciprocitySlider.value;
   displayNewShutterspeed(); 
 });
 
