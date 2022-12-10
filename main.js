@@ -3,6 +3,7 @@
 // Slidere fra HTML
 // Verdier fra HTML som skal oppdateres ved input
 // Andre verdier
+// Legge til flere lukkertider senere?
 // ------------------------------------------------------------------------------------------------------------------------
 
 var isoSlider = document.getElementById("iso");
