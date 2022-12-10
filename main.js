@@ -2,7 +2,7 @@
 // ------------------------------------------------------------------------------------------------------------------------
 // Slidere fra HTML
 // Verdier fra HTML som skal oppdateres ved input
-// Andre verdier og arrays
+// Andre verdier
 // ------------------------------------------------------------------------------------------------------------------------
 
 var isoSlider = document.getElementById("iso");
