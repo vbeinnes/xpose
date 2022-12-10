@@ -77,21 +77,23 @@ function displayNewShutterspeed(){
 }
 
 
-// Funksjon laget i samarbeid med https://chat.openai.com/, og modifisert med å bare vise det som ikke er 0.
+// Funksjon laget i samarbeid med https://chat.openai.com/, og modifisert med å bare vise det som ikke er 0, + år
 
 function convertSeconds(seconds) {
   seconds = Number(seconds);
-  const days = Math.floor(seconds / (24 * 60 * 60));
+  const years = Math.floor(seconds / (365 * 24 * 60 * 60));
+  const days = Math.floor(seconds % (365 * 24 * 60 * 60) / (24 * 60 * 60));
   const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60));
   const minutes = Math.floor((seconds % (60 * 60)) / 60);
   const remainingSeconds = seconds % 60;
 
+  const yearsShown = years > 0 ? years + ("y ") : "";
   const daysShown = days > 0 ? days + ("d ") : "";
   const hoursShown = hours > 0 ? hours + ("h ") : "";
   const minutesShown = minutes > 0 ? minutes + ("m ") : "";
   const secondsShown = remainingSeconds > 0 ? remainingSeconds + ("s ") : "";
 
-  return daysShown + hoursShown + minutesShown + secondsShown;
+  return yearsShown + daysShown + hoursShown + minutesShown + secondsShown;
 }
 
 // ------------------------------------------------------------------------------------------------------------------------
