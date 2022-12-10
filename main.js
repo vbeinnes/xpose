@@ -31,7 +31,7 @@ var evResult = document.getElementById("ev");
 var newShutterspeed = document.getElementById("newShutterspeed");
 
 
-const appertureValues = [1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16, 22, 32];
+const appertureValues = [1, 1.2, 1.4, 1.8, 2, 2.4, 2.8, 3.5, 4, 4.8, 5.6, 6.7, 8, 9.5, 11, 13, 16, 19, 22, 27, 32];
 
 const shutterspeedValues = [
   "1/8000", "1/4000", "1/2000", "1/1000", "1/500", "1/250", "1/125", "1/60","1/30", "1/15", "1/8", "1/4", "1/2", "1", "2", "4", "8", "15", "30"];
