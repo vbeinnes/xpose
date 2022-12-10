@@ -3,8 +3,8 @@
 body {
   font-family: Roboto, Arial;
   font-size: small;
-  background-color: rgb(239, 239, 239);
-  width: 600px;
+  color: #f8f8f8;
+  background-color: #1c1c1c;
 }
 
 .header {
@@ -13,44 +13,77 @@ body {
   margin-top: 40px;
   margin-left: 30px;
   margin-bottom: 20px;
+  /*background-color: rgb(15, 66, 66);*/
+}
+
+.divider-container {
+  border-style: solid;
+  border-color: #363636;
+  border-width: 1px;
+  margin-top: -1px;
+  width: 300px;
+  /* background-color: brown; */
 }
 
 .slider-container {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 130px 230px 200px;
-    margin-left: 30px;
-    margin-top: 5px;
-  }
+  display: grid;
+  align-items: center;
+  grid-template-columns: 240px;
+  margin-left: 30px;
+  margin-top: 24px;
+  /* background-color: rgb(79, 24, 132); */
+}
+
+.slider-text-container {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #433b3b; */
+}
 
 .prefix {
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* background-color: darkblue; */
 }
 
-.result {
+.ev-result {
   margin-left: 30px;
-  margin-top: 10px;
-  display: grid;
+  margin-top: 16px;
+  display: flex;
+  justify-content: left;
   align-items: center;
-  grid-template-columns: 200px 200px;
   font-size: medium;
   font-weight: 500;
+  margin-bottom: 10px;
+  /* background-color: rgb(105, 17, 35); */
+}
+
+.new-shutterspeed-result {
+  margin-left: 30px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  font-size: medium;
+  font-weight: 500;
+  margin-bottom: 28px;
+  /* background-color: rgb(105, 17, 35); */
 }
   
 .slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 200px;
-  height: 8px;
-  background: #d3d3d3;
+  width: 240px;
+  height: 2px;
+  background: #626262;
   outline: none;
   opacity: 0.8;
   -webkit-transition: .15s;
   transition: opacity .15s;
   border-radius: 4px;
-  margin-right: 20px;
 }
 
 .slider:hover {
@@ -62,7 +95,7 @@ body {
   appearance: none;
   width: 15px;
   height: 15px;
-  background: #505050;
+  background: #f8f8f8;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -70,7 +103,13 @@ body {
 .slider::-moz-range-thumb {
   width: 15px;
   height: 15px;
-  background: #505050;
+  background: #f8f8f8;
   cursor: pointer;
   border-radius: 8px;
+}
+
+#newShutterspeed {
+  color: #d5ca92;
+  font-size: x-large;
+  font-weight: 500;
 }

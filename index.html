@@ -1,3 +1,6 @@
+
+<!-- :) -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,71 +17,89 @@
 </head>
 
   <body>
-    <p class="header">Initial settings:</p>   <!-- Overskrift 1 -->
+    <div class="divider-container">
+      <p class="header">Initial settings:</p>   <!-- Overskrift 1 -->
 
-    <div class="slider-container">
-      <p class="slider-label">ISO</p>
-      <input type="range" min="50" max="3200" value="800" step="50" class="slider" id="iso">
-      <span id="isoResult"></span>
-    </div>
+      <div class="slider-container">
+        <div class="slider-text-container">
+          <p class="slider-label">ISO</p>
+          <span id="isoResult"></span>
+        </div>
+        <input type="range" min="50" max="3200" value="800" step="50" class="slider" id="iso">
+      </div>
 
-    <div class="slider-container">
-      <p class="slider-label">Apperture</p>
-      <input type="range" min="0" max="10" value="3" step="1" class="slider" id="apperture">        
-      <div class="prefix">
-        <p>f/</p>
-        <span id="appertureResult"></span>
+      <div class="slider-container">
+        <div class="slider-text-container">
+          <p class="slider-label">Apperture</p>
+          <div class="prefix">
+            <p>f/</p>
+            <span id="appertureResult"></span>
+          </div>
+        </div>
+        <input type="range" min="0" max="10" value="3" step="1" class="slider" id="apperture">        
+      </div>
+
+      <div class="slider-container">
+        <div class="slider-text-container">
+          <p class="slider-label">Shutter speed</p>
+          <div class="prefix">     
+            <span id="shutterspeedResult"></span>
+            </p>s</p>
+          </div>
+        </div>
+        <input type="range" min="0" max="18" value="4" step="1" class="slider" id="shutterspeed">
+      </div>
+      
+      <div class="ev-result">
+        <p>EV: </p>
+        <div>&nbsp;</div>
+        <span id="ev"></span>
       </div>
     </div>
 
-    <div class="slider-container">
-      <p class="slider-label">Shutter speed</p>
-      <input type="range" min="0" max="18" value="4" step="1" class="slider" id="shutterspeed">
-      <div class="prefix">     
-        <span id="shutterspeedResult"></span>
-        </p>s</p>
+    <div class="divider-container">
+      <p class="header">New settings:</p> <!-- Overskrift 2 -->
+
+      <div class="slider-container">
+        <div class="slider-text-container">
+          <p class="slider-label">ISO</p>
+          <span id="newIsoResult"></span>
+        </div>
+        <input type="range" min="50" max="3200" value="800" step="50" class="slider" id="newIso">  
+      </div>
+
+      <div class="slider-container">
+        <div class="slider-text-container">
+          <p class="slider-label">Apperture</p>
+          <div class="prefix">
+            <p>f/</p>
+            <span id="newAppertureResult"></span>
+          </div>
+        </div>
+        <input type="range" min="0" max="10" value="3" step="1" class="slider" id="newApperture">        
+      </div>
+
+      <div class="slider-container">
+        <div class="slider-text-container">
+          <p class="slider-label">ND filter</p>
+          <span id="ndResult"></span>
+        </div>
+        <input type="range" min="0" max="10" value="0" step="1" class="slider" id="nd">        
+      </div>
+
+      <div class="slider-container">
+        <div class="slider-text-container">
+          <p class="slider-label">Reciprocity</p>
+          <span id="reciprocityResult"></span>
+        </div>
+        <input type="range" min="1" max="1.5" value="1" step="0.01" class="slider" id="reciprocity">        
+      </div>
+
+      <div class="new-shutterspeed-result">
+        <p>New shutter speed: </p> <!-- Overskrift 3 -->
+        <span id="newShutterspeed"></span>
       </div>
     </div>
-
-    <div class="result">
-      <p>EV: </p>
-      <span id="ev"></span>
-    </div>
-
-    <p class="header">New settings:</p> <!-- Overskrift 2 -->
-
-    <div class="slider-container">
-      <p class="slider-label">ISO</p>
-      <input type="range" min="50" max="3200" value="800" step="50" class="slider" id="newIso">  
-      <span id="newIsoResult"></span>
-    </div>
-
-    <div class="slider-container">
-      <p class="slider-label">Apperture</p>
-      <input type="range" min="0" max="10" value="3" step="1" class="slider" id="newApperture">        
-      <div class="prefix">
-        <p>f/</p>
-        <span id="newAppertureResult"></span>
-      </div>
-    </div>
-
-    <div class="slider-container">
-      <p class="slider-label">ND filter</p>
-      <input type="range" min="0" max="10" value="0" step="1" class="slider" id="nd">        
-        <span id="ndResult"></span>
-    </div>
-
-    <div class="slider-container">
-      <p class="slider-label">Reciprocity</p>
-      <input type="range" min="1" max="1.5" value="1" step="0.01" class="slider" id="reciprocity">        
-      <span id="reciprocityResult"></span>
-    </div>
-
-    <div class="result">
-      <p>New shutter speed: </p> <!-- Overskrift 3 -->
-      <span id="newShutterspeed"></span>
-    </div>
-
     <!-- Henter JS-->
     <script src="main.js"></script>
   </body>
