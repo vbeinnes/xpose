@@ -2,13 +2,13 @@
 
 body {
   font-family: Roboto, Arial;
-  font-size: small;
+  font-size: medium;
   color: #f8f8f8;
   background-color: #1d1d1d;
 }
 
 .header {
-  font-size: medium;
+  font-size: large;
   font-weight: 500;
   margin-top: 40px;
   margin-left: 30px;
@@ -21,16 +21,25 @@ body {
   border-color: #373737;
   border-width: 1px;
   margin-top: -1px;
-  width: 300px;
+  width: 320px;
   /* background-color: brown; */
+}
+
+.result-container {
+  border-style: solid;
+  border-color: #373737;
+  border-width: 1px;
+  margin-top: -1px;
+  margin-left: -1px;
+  width: 320px;
 }
 
 .slider-container {
   display: grid;
   align-items: center;
-  grid-template-columns: 240px;
+  grid-template-columns: 260px;
   margin-left: 30px;
-  margin-top: 24px;
+  margin-bottom: 24px;
   /* background-color: rgb(79, 24, 132); */
 }
 
@@ -76,7 +85,7 @@ body {
 .slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 240px;
+  width: 260px;
   height: 2px;
   background: #626262;
   outline: none;
