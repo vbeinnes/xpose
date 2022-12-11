@@ -97,8 +97,7 @@ body {
   -webkit-transition: .15s;
   transition: opacity .15s;
   border-radius: 4px;
-  /* background-color: darkorange; */
-}
+ }
 
 .slider:hover {
   opacity: 1;
@@ -123,7 +122,11 @@ body {
 }
 
 #newShutterspeed {
-  color: #d5ca92;
+  color: #e7d57a;
   font-size: x-large;
   font-weight: 700;
+}
+
+.line-spacer {
+  margin-bottom: 40px;
 }
