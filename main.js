@@ -32,20 +32,47 @@ var evResult = document.getElementById("ev");
 var newShutterspeed = document.getElementById("newShutterspeed");
 
 
-const appertureValues = [1, 1.2, 1.4, 1.8, 2, 2.4, 2.8, 3.5, 4, 4.8, 5.6, 6.7, 8, 9.5, 11, 13, 16, 19, 22, 27, 32];
+const appertureValues = [
+  1, 1.1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.5, 2.8, 3.2, 3.5, 4, 4.5, 5,
+  5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22, 25, 29, 32, 36];
 
 const shutterspeedValues = [
-  "1/8000", "1/4000", "1/2000", "1/1000", "1/500", "1/250", "1/125", "1/60","1/30", "1/15", "1/8", "1/4", "1/2", "1", "2", "4", "8", "15", "30"];
+  "1/32000", "1/25000", "1/20000", "1/16000", "1/13000", "1/10000",
+  "1/8000", "1/6400", "1/5000", "1/4000", "1/3200", "1/2500", "1/2000", "1/1600",
+  "1/1250", "1/1000", "1/800", "1/640", "1/500", "1/400", "1/320", "1/250", "1/200",
+  "1/160", "1/125", "1/100", "1/80", "1/60","1/50", "1/40", "1/30", "1/25", "1/20",
+  "1/15", "1/13", "1/10", "1/8", "1/6", "1/5", "1/4", "1/3", "1/2.5", "1/2",  "1/1.6",
+  "1/1.3", "1", "1.3", "1.5", "2", "2.5", "3", "4", "5", "6.5", "8", "10", "13", "15", "20", "25", "30"
+];
 
 const shutterspeedValuesNum = [
-  1/8000, 1/4000, 1/2000, 1/1000, 1/500, 1/250, 1/125, 1/60,1/30, 1/15, 1/8, 1/4, 1/2, 1, 2, 4, 8, 15, 30];
+  1/32000, 1/25000, 1/20000, 1/16000, 1/13000, 1/10000,
+  1/8000, 1/6400, 1/5000, 1/4000, 1/3200, 1/2500, 1/2000, 1/1600,
+  1/1250, 1/1000, 1/800, 1/640, 1/500, 1/400, 1/320, 1/250, 1/200,
+  1/160, 1/125, 1/100, 1/80, 1/60, 1/50, 1/40, 1/30, 1/25, 1/20,
+  1/15, 1/13, 1/10, 1/8, 1/6, 1/5, 1/4, 1/3, 1/2.5, 1/2,  1/1.6,
+  1/1.3, 1, 1.3, 1.5, 2, 2.5, 3, 4, 5, 6.5, 8, 10, 13, 15, 20, 25, 30
+];
+
+const shutterspeedValuesNumMap = [
+  1/32000, 1/25000, 1/20000, 1/16000, 1/13000, 1/10000,
+  1/8000, 1/6400, 1/5000, 1/4000, 1/3200, 1/2500, 1/2000, 1/1600,
+  1/1250, 1/1000, 1/800, 1/640, 1/500, 1/400, 1/320, 1/250, 1/200,
+  1/160, 1/125, 1/100, 1/80, 1/60, 1/50, 1/40, 1/30, 1/25, 1/20,
+  1/15, 1/13, 1/10, 1/8, 1/6, 1/5, 1/4, 1/3, 1/2.5, 1/2,  1/1.6,
+  1/1.3, 1 // For å unngå å sjekke mot tall større enn én hele tiden i mapToClosestShutterspeedIndex, når vi vet ssNd er mindre enn 1
+];
+
+const isoValues = [
+  80, 100, 125, 160, 200, 250, 320, 400, 500, 640, 800, 1000, 1250, 1600, 2000, 2500, 3200, 4000, 5000, 6400, 8000, 10000, 12800, 25600, 51200, 
+];
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Funksjoner
 // ------------------------------------------------------------------------------------------------------------------------
 
 function calculateEv(){
-  let iso = parseInt(isoSlider.value);
+  let iso = parseInt(isoValues[isoSlider.value]);
   let f = parseFloat(appertureValues[appertureSlider.value]);
   let ss = parseFloat(shutterspeedValuesNum[shutterspeedSlider.value]);
   return (Math.log2(f**2) + Math.log2(1/ss) - Math.log2(iso/100));
@@ -56,7 +83,7 @@ function displayEv() {
 }
 
 function displayNewShutterspeed(){
-  let iso2 = parseInt(newIsoSlider.value);
+  let iso2 = parseInt(isoValues[newIsoSlider.value]);
   let f2 = parseFloat(appertureValues[newAppertureSlider.value]);
   let newShutterspeedResult = (25 * (f2**2))/(2**((calculateEv())-2)*iso2);
 
@@ -64,7 +91,8 @@ function displayNewShutterspeed(){
   let ssNd = newShutterspeedResult * (2 ** ndValue);
 
   if (ssNd < 1) {
-    newShutterspeed.innerHTML = (ssNd.toFixed(3) + " seconds");
+    //newShutterspeed.innerHTML = (ssNd.toFixed(3) + " seconds");
+    newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(ssNd, shutterspeedValuesNumMap)] + "s";
   } else {
     let reciprocityFactor = parseFloat(reciprocitySlider.value);
     let ssReciprocity = (ssNd ** reciprocityFactor);
@@ -78,7 +106,7 @@ function displayNewShutterspeed(){
 }
 
 
-// Funksjon laget i samarbeid med https://chat.openai.com/, og modifisert med å bare vise det som ikke er 0, + år
+// Funksjoner laget i samarbeid med https://chat.openai.com/, og modifisert til å passe
 
 function convertSeconds(seconds) {
   seconds = Number(seconds);
@@ -97,12 +125,23 @@ function convertSeconds(seconds) {
   return yearsShown + daysShown + hoursShown + minutesShown + secondsShown;
 }
 
+function mapToClosestShutterspeedIndex(num, values) {
+  // First, we need to find the absolute difference between the input number
+  // and each of the values in the given array
+  let diffs = values.map(value => Math.abs(value - num));
+  // Next, we need to find the index of the smallest difference in the array
+  let minIndex = diffs.indexOf(Math.min(...diffs));
+  // Finally, we return the value from the given array that has the smallest difference
+  // with the input number
+  return minIndex;
+}
+
 // ------------------------------------------------------------------------------------------------------------------------
 // Sett alle verdier fra slidere og utregnede verdier - FRA OPPSTART
 // ------------------------------------------------------------------------------------------------------------------------
 
-isoResult.innerHTML = isoSlider.value;
-newIsoResult.innerHTML = newIsoSlider.value;
+isoResult.innerHTML = isoValues[isoSlider.value];
+newIsoResult.innerHTML = isoValues[newIsoSlider.value];
 appertureResult.innerHTML = appertureValues[appertureSlider.value];
 newAppertureResult.innerHTML = appertureValues[newAppertureSlider.value];
 shutterspeedResult.innerHTML = shutterspeedValues[shutterspeedSlider.value]; 
@@ -116,7 +155,7 @@ displayNewShutterspeed();
 // ------------------------------------------------------------------------------------------------------------------------
 
 document.getElementById("iso").addEventListener('input',() => {
-  isoResult.innerHTML = isoSlider.value;
+  isoResult.innerHTML = isoValues[isoSlider.value];
   displayEv();
   displayNewShutterspeed();   
 });
@@ -136,7 +175,7 @@ document.getElementById("shutterspeed").addEventListener('input',() => {
 // ------------------------------------------------------------------------------------------------------------------------
 
 document.getElementById("newIso").addEventListener('input',() => {
-  newIsoResult.innerHTML = newIsoSlider.value;
+  newIsoResult.innerHTML = isoValues[newIsoSlider.value];
   displayNewShutterspeed();  
 });
 document.getElementById("newApperture").addEventListener('input',() => {

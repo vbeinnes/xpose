@@ -6,6 +6,8 @@ body {
   color: #e6e6e6;
   background-color: #1d1d1d;
   padding-top: 12px;
+  display: flex;
+  justify-content: center;
 }
 
 .header {
@@ -14,6 +16,7 @@ body {
   margin-top: 40px;
   margin-left: 30px;
   margin-bottom: 20px;
+  /* background-color: #373737; */
 }
 
 .divider-container {
@@ -22,6 +25,7 @@ body {
   border-width: 1px;
   margin-top: -1px;
   width: 360px;
+  /* background-color: darkblue; */
 }
 
 .result-container {
@@ -31,6 +35,7 @@ body {
   margin-top: -1px;
   margin-left: -1px;
   width: 360px;
+  /* background-color: crimson; */
 }
 
 .slider-container {
@@ -39,6 +44,7 @@ body {
   grid-template-columns: 300px;
   margin-left: 30px;
   margin-bottom: 24px;
+  /* background-color: darkgreen; */
 }
 
 .slider-text-container {
@@ -46,12 +52,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* background-color: #626262; */
 }
 
 .prefix {
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* background-color: darkmagenta; */
 }
 
 .ev-result {
@@ -63,6 +71,7 @@ body {
   font-size: medium;
   font-weight: 500;
   margin-bottom: 10px;
+  /* background-color: darkslategrey; */
 }
 
 .new-shutterspeed-result {
@@ -74,6 +83,7 @@ body {
   font-size: medium;
   font-weight: 500;
   margin-bottom: 28px;
+  /* background-color: rgb(97, 34, 34); */
 }
   
 .slider {
@@ -87,6 +97,7 @@ body {
   -webkit-transition: .15s;
   transition: opacity .15s;
   border-radius: 4px;
+  /* background-color: darkorange; */
 }
 
 .slider:hover {
