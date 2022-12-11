@@ -79,7 +79,8 @@ function calculateEv(){
 }
 
 function displayEv() {
-  evResult.innerHTML =  Math.round(calculateEv());  
+  let wholeNumberEv = Math.round(calculateEv());
+  evResult.innerHTML =  wholeNumberEv + mapLightConditions(wholeNumberEv);  
 }
 
 function displayNewShutterspeed(){
@@ -103,6 +104,36 @@ function displayNewShutterspeed(){
       newShutterspeed.innerHTML = convertSeconds(Math.round(ssReciprocity));
     }
   }   
+}
+
+function mapLightConditions(ev) {
+  let lightConditions = ""
+  if (ev >= 21) {
+    lightConditions = " - Extremely bright";
+  } else if (ev >= 17) {
+    lightConditions = " - Strong artificial lighting";
+  } else if (ev >= 14) {
+    lightConditions = " - Bright sunlight";
+  } else if (ev >= 12) {
+    lightConditions = " - Bright overcast";
+  } else if (ev >= 10) {
+    lightConditions = " - Overcast/sunset";
+  } else if (ev >= 8) {
+    lightConditions = " - Bright inndoors";
+  } else if (ev >= 4) {
+    lightConditions = " - Inndoor";
+  } else if (ev >= 2) {
+    lightConditions = " - Well lit night scene";
+  } else if (ev >= 1) {
+    lightConditions = " - Distant skyline";
+  } else if (ev >= -2) {
+    lightConditions = " - Full moon";
+  } else if (ev >= -6) {
+    lightConditions = " - Starlight";
+  } else {
+    lightConditions = " - Pitch black";
+  }
+  return lightConditions;
 }
 
 
