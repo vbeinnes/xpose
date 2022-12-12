@@ -12,11 +12,11 @@ var isoResult = document.getElementById("isoResult");
 var newIsoSlider = document.getElementById("newIso");
 var newIsoResult = document.getElementById("newIsoResult");
 
-var appertureSlider = document.getElementById("apperture");
-var appertureResult = document.getElementById("appertureResult");
+var apertureSlider = document.getElementById("aperture");
+var apertureResult = document.getElementById("apertureResult");
 
-var newAppertureSlider = document.getElementById("newApperture");
-var newAppertureResult = document.getElementById("newAppertureResult");
+var newApertureSlider = document.getElementById("newAperture");
+var newApertureResult = document.getElementById("newApertureResult");
 
 var shutterspeedSlider = document.getElementById("shutterspeed");
 var shutterspeedResult = document.getElementById("shutterspeedResult");
@@ -32,7 +32,7 @@ var evResult = document.getElementById("ev");
 var newShutterspeed = document.getElementById("newShutterspeed");
 
 
-const appertureValues = [
+const apertureValues = [
   1, 1.1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.5, 2.8, 3.2, 3.5, 4, 4.5, 5,
   5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22, 25, 29, 32, 36];
 
@@ -73,7 +73,7 @@ const isoValues = [
 
 function calculateEv(){
   let iso = parseInt(isoValues[isoSlider.value]);
-  let f = parseFloat(appertureValues[appertureSlider.value]);
+  let f = parseFloat(apertureValues[apertureSlider.value]);
   let ss = parseFloat(shutterspeedValuesNum[shutterspeedSlider.value]);
   return (Math.log2(f**2) + Math.log2(1/ss) - Math.log2(iso/100));
 }
@@ -85,7 +85,7 @@ function displayEv() {
 
 function displayNewShutterspeed(){
   let iso2 = parseInt(isoValues[newIsoSlider.value]);
-  let f2 = parseFloat(appertureValues[newAppertureSlider.value]);
+  let f2 = parseFloat(apertureValues[newApertureSlider.value]);
   let newShutterspeedResult = (25 * (f2**2))/(2**((calculateEv())-2)*iso2);
 
   let ndValue = parseInt(ndSlider.value);
@@ -119,9 +119,9 @@ function mapLightConditions(ev) {
   } else if (ev >= 10) {
     lightConditions = " - Overcast/sunset";
   } else if (ev >= 8) {
-    lightConditions = " - Bright inndoors";
+    lightConditions = " - Bright indoors";
   } else if (ev >= 4) {
-    lightConditions = " - Inndoor";
+    lightConditions = " - Indoor";
   } else if (ev >= 2) {
     lightConditions = " - Well lit night scene";
   } else if (ev >= 1) {
@@ -173,8 +173,8 @@ function mapToClosestShutterspeedIndex(num, values) {
 
 isoResult.innerHTML = isoValues[isoSlider.value];
 newIsoResult.innerHTML = isoValues[newIsoSlider.value];
-appertureResult.innerHTML = appertureValues[appertureSlider.value];
-newAppertureResult.innerHTML = appertureValues[newAppertureSlider.value];
+apertureResult.innerHTML = apertureValues[apertureSlider.value];
+newApertureResult.innerHTML = apertureValues[newApertureSlider.value];
 shutterspeedResult.innerHTML = shutterspeedValues[shutterspeedSlider.value]; 
 ndResult.innerHTML = (ndSlider.value + " stops");
 reciprocityResult.innerHTML = reciprocitySlider.value;
@@ -190,8 +190,8 @@ document.getElementById("iso").addEventListener('input',() => {
   displayEv();
   displayNewShutterspeed();   
 });
-document.getElementById("apperture").addEventListener('input',() => {
-  appertureResult.innerHTML = appertureValues[appertureSlider.value];
+document.getElementById("aperture").addEventListener('input',() => {
+  apertureResult.innerHTML = apertureValues[apertureSlider.value];
   displayEv();
   displayNewShutterspeed();    
 });
@@ -209,8 +209,8 @@ document.getElementById("newIso").addEventListener('input',() => {
   newIsoResult.innerHTML = isoValues[newIsoSlider.value];
   displayNewShutterspeed();  
 });
-document.getElementById("newApperture").addEventListener('input',() => {
-  newAppertureResult.innerHTML = appertureValues[newAppertureSlider.value];
+document.getElementById("newAperture").addEventListener('input',() => {
+  newApertureResult.innerHTML = apertureValues[newApertureSlider.value];
   displayNewShutterspeed(); 
 });
 document.getElementById("nd").addEventListener('input',() => {
