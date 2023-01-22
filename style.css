@@ -6,7 +6,7 @@ body {
   font-family: Marcher, Roboto, Arial;                                     
   font-size: medium;
   color: #e6e6e6;
-  background-color:#03dac5;
+  background-color:#333333;
   padding-top: 12px;
   display: flex;
   justify-content: center;
@@ -23,7 +23,7 @@ body {
 }
 
 .divider-container-1 {
-  background-color: #191919;
+  background-color: #1b1b1b;
   margin-bottom: 20px;
   width: 360px;
   border-style: solid;
@@ -41,7 +41,7 @@ body {
 }
 
 .divider-container-2 {
-  background-color: #191919;
+  background-color: #1b1b1b;
   margin-bottom: 28px;
   width: 360px;
   border-style: solid;
@@ -61,7 +61,7 @@ body {
   position: fixed;
   z-index: 100;
   bottom: 20px;
-  background-color: #0f0e0e;
+  background-color: #0f0f0f;
   border-style: inset;
   border-color: transparent;
   border-width: 1px;
@@ -169,7 +169,7 @@ body {
 .black-spacer {
   position: fixed;
   bottom: 0px;
-  background-color: #000000;
+  background-color: #333333;
   width: 362px;
   height: 80px;
 }
