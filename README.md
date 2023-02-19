@@ -4,13 +4,13 @@
 Xpose is a tool to help calculate long exposure times in photography, especially usefull when using ND-filters or shooting film when you have to take reciprocity failure into accpunt.
 
 
-**How it works**
+*How it works*
 First you have to measure the amount of light in your scene with the light meter in your camera (or an external light meter), and set the given values into the *metered settings* section. Then, by setting your preferred settings for the actual exposure in the *new settings* section, you will be given an appropriate exposure time (shutter speed) for your long exposure picture.
 
 If you alredy have a spesific exposure time in mind, you can tweak the other settings until it matches.
 
 
-**Math**
+*Math*
 EV (Exposure value) corresponds to the amount of light in your scene. The higher the number, the brighter the scene. The EV is calculated as follows, using the aperture value *f*, the shutter speed *ss*, and the *iso* from the metered settings:
 
     EV = Math.log2(f**2) + Math.log2(1/ss) - Math.log2(iso/100)
