@@ -38,7 +38,7 @@ const apertureValues = [
   5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22, 25, 29, 32, 36];
 
 const shutterspeedValues = [
-  "1/32000", "1/25000", "1/20000", "1/16000", "1/13000", "1/10000",
+  "1/250000", "1/200000", "1/160000", "1/128000", "1/100000", "1/80000", "1/64000", "1/50000", "1/40000", "1/32000", "1/25000", "1/20000", "1/16000", "1/13000", "1/10000",
   "1/8000", "1/6400", "1/5000", "1/4000", "1/3200", "1/2500", "1/2000", "1/1600",
   "1/1250", "1/1000", "1/800", "1/640", "1/500", "1/400", "1/320", "1/250", "1/200",
   "1/160", "1/125", "1/100", "1/80", "1/60","1/50", "1/40", "1/30", "1/25", "1/20",
@@ -47,7 +47,7 @@ const shutterspeedValues = [
 ];
 
 const shutterspeedValuesNum = [
-  1/32000, 1/25000, 1/20000, 1/16000, 1/13000, 1/10000,
+  1/250000, 1/200000, 1/160000, 1/128000, 1/100000, 1/80000, 1/64000, 1/50000, 1/40000, 1/32000, 1/25000, 1/20000, 1/16000, 1/13000, 1/10000,
   1/8000, 1/6400, 1/5000, 1/4000, 1/3200, 1/2500, 1/2000, 1/1600,
   1/1250, 1/1000, 1/800, 1/640, 1/500, 1/400, 1/320, 1/250, 1/200,
   1/160, 1/125, 1/100, 1/80, 1/60, 1/50, 1/40, 1/30, 1/25, 1/20,
@@ -56,7 +56,7 @@ const shutterspeedValuesNum = [
 ];
 
 const shutterspeedValuesNumMap = [
-  1/32000, 1/25000, 1/20000, 1/16000, 1/13000, 1/10000,
+  1/250000, 1/200000, 1/160000, 1/128000, 1/100000, 1/80000, 1/64000, 1/50000, 1/40000, 1/32000, 1/25000, 1/20000, 1/16000, 1/13000, 1/10000,
   1/8000, 1/6400, 1/5000, 1/4000, 1/3200, 1/2500, 1/2000, 1/1600,
   1/1250, 1/1000, 1/800, 1/640, 1/500, 1/400, 1/320, 1/250, 1/200,
   1/160, 1/125, 1/100, 1/80, 1/60, 1/50, 1/40, 1/30, 1/25, 1/20,
@@ -94,7 +94,12 @@ function displayNewShutterspeed(){
 
   if (ssNd < 1) {
     //newShutterspeed.innerHTML = (ssNd.toFixed(3) + " seconds");
-    newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(ssNd, shutterspeedValuesNumMap)] + "s";
+    if (ssNd < (1/285000)) {
+      newShutterspeed.innerHTML = "Shorter than 1/250000";
+    } else {
+      newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(ssNd, shutterspeedValuesNumMap)] + "s";
+    }
+
   } else {
     let reciprocityFactor = parseFloat(reciprocitySlider.value);
     let ssReciprocity = (ssNd ** reciprocityFactor);
@@ -154,7 +159,12 @@ function convertSeconds(seconds) {
   const minutesShown = minutes > 0 ? minutes + ("m ") : "";
   const secondsShown = remainingSeconds > 0 ? remainingSeconds + ("s ") : "";
 
-  return yearsShown + daysShown + hoursShown + minutesShown + secondsShown;
+  if (years < 1000) {
+    return yearsShown + daysShown + hoursShown + minutesShown + secondsShown;
+  } else {
+    return "More than " + years + " years";
+  }
+  
 }
 
 function mapToClosestShutterspeedIndex(num, values) {
