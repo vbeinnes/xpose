@@ -95,7 +95,7 @@ function displayNewShutterspeed(){
   if (ssNd < 1) {
     //newShutterspeed.innerHTML = (ssNd.toFixed(3) + " seconds");
     if (ssNd < (1/285000)) {
-      newShutterspeed.innerHTML = "Shorter than 1/250000";
+      newShutterspeed.innerHTML = "Shorter than 1/250000s";
     } else {
       newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(ssNd, shutterspeedValuesNumMap)] + "s";
     }
