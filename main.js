@@ -160,11 +160,22 @@ function convertSeconds(seconds) {
   const minutesShown = minutes > 0 ? minutes + ("m ") : "";
   const secondsShown = remainingSeconds > 0 ? remainingSeconds + ("s ") : "";
 
-  if (years < 1000) {
-    return yearsShown + daysShown + hoursShown + minutesShown + secondsShown;
-  } else {
+  if (years > 1000) {
     return "More than " + years + " years";
+
+  } else if (years > 0) {
+    return yearsShown + daysShown;
+
+  } else if (days > 0) {
+    return daysShown + hoursShown;
+
+  } else if (hours > 0) {
+    return hoursShown + minutesShown;
+
+  } else {
+    return minutesShown + secondsShown;
   }
+
   
 }
 
@@ -189,7 +200,9 @@ apertureResult.innerHTML = apertureValues[apertureSlider.value];
 newApertureResult.innerHTML = apertureValues[newApertureSlider.value];
 shutterspeedResult.innerHTML = shutterspeedValues[shutterspeedSlider.value]; 
 ndResult.innerHTML = (ndSlider.value + " stops");
-reciprocityResult.innerHTML = reciprocitySlider.value;
+reciprocityResult.innerHTML = "1 (digital)";
+
+
 displayEv();
 displayNewShutterspeed();
 
@@ -230,7 +243,11 @@ document.getElementById("nd").addEventListener('input',() => {
   displayNewShutterspeed(); 
 });
 document.getElementById("reciprocity").addEventListener('input',() => {
-  reciprocityResult.innerHTML = reciprocitySlider.value;
+  if (reciprocitySlider.value > 1){
+    reciprocityResult.innerHTML = reciprocitySlider.value;
+  } else {
+    reciprocityResult.innerHTML = "1 (digital)";
+  }
   displayNewShutterspeed(); 
 });
 
