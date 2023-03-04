@@ -24,7 +24,7 @@ body {
 
 .divider-container-1 {
   background-color: #1b1b1b;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   width: 360px;
   border-style: solid;
   border-color: transparent;
@@ -42,7 +42,7 @@ body {
 
 .divider-container-2 {
   background-color: #1b1b1b;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   width: 360px;
   border-style: solid;
   border-color: transparent;
@@ -186,4 +186,43 @@ body {
   bottom: 0px;
   left: 0;
   width: 100%;
+}
+
+.title-description-container {
+  width: 280px;
+  margin-bottom: 24px;
+
+  padding-top: 4px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 30px;
+
+  background-color: #1b1b1b;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 1px;
+  border-radius: 16px;
+}
+
+.main-title {
+  font-family: Marcher, Roboto, Arial;                                     
+  font-size: x-large;
+  font-weight: 700;
+  color: #e0b676;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.description {
+  font-family: Marcher, Roboto, Arial;                                     
+  font-size: medium;
+  color: #e6e6e6;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+a {
+  font-family: Marcher, Roboto, Arial;                                     
+  font-size: medium;
+  color: #e6e6e6;
 }
