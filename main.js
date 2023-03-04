@@ -161,7 +161,7 @@ function convertSeconds(seconds) {
   const secondsShown = remainingSeconds > 0 ? remainingSeconds + ("s ") : "";
 
   if (years > 1000) {
-    return "More than " + years + " years";
+    return years + " years +";
 
   } else if (years > 0) {
     return yearsShown + daysShown;
