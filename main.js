@@ -78,32 +78,33 @@ function calculateEv(){
   let f = parseFloat(apertureValues[apertureSlider.value]);
   let ss = parseFloat(shutterspeedValuesNum[shutterspeedSlider.value]);
   return (Math.log2(f**2) + Math.log2(1/ss) - Math.log2(iso/100));
+  // Returns EV as float
 }
 
 function displayEv() {
   let wholeNumberEv = Math.round(calculateEv());
   evResult.innerHTML =  wholeNumberEv + mapLightConditions(wholeNumberEv);  
+  // Displays EV rounded to whole number
 }
 
 function displayNewShutterspeed(){
   let iso2 = parseInt(isoValues[newIsoSlider.value]);
   let f2 = parseFloat(apertureValues[newApertureSlider.value]);
-  let newShutterspeedResult = (25 * (f2**2))/(2**((calculateEv())-2)*iso2);
-
   let ndValue = parseInt(ndSlider.value);
-  let ssNd = newShutterspeedResult * (2 ** ndValue);
 
-  if (ssNd < 1) {
-    //newShutterspeed.innerHTML = (ssNd.toFixed(3) + " seconds");
-    if (ssNd < (1/285000)) {
+  let newShutterspeedResult = (25 * (f2**2))/(2**((calculateEv())-2)*iso2) * (2 ** ndValue);
+
+
+  if (newShutterspeedResult < 1) {
+    if (newShutterspeedResult < (1/285000)) {
       newShutterspeed.innerHTML = "Shorter than 1/250000s";
     } else {
-      newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(ssNd, shutterspeedValuesNumMap)] + "s";
+      newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(newShutterspeedResult, shutterspeedValuesNumMap)] + "s";
     }
 
   } else {
     let reciprocityFactor = parseFloat(reciprocitySlider.value);
-    let ssReciprocity = (ssNd ** reciprocityFactor);
+    let ssReciprocity = (newShutterspeedResult ** reciprocityFactor);
     
     if (ssReciprocity < 60) {
       newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + " seconds");
