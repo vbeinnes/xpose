@@ -25,12 +25,11 @@ var shutterspeedResult = document.getElementById("shutterspeedResult");
 var ndSlider = document.getElementById("nd");
 var ndResult = document.getElementById("ndResult");
 
-var reciprocitySlider = document.getElementById("reciprocity");
-var reciprocityResult = document.getElementById("reciprocityResult");
-
 var evResult = document.getElementById("ev");
 
 var newShutterspeed = document.getElementById("newShutterspeed");
+
+var filmSelect = document.getElementById("film-select")
 
 
 const apertureValues = [
@@ -103,9 +102,9 @@ function displayNewShutterspeed(){
     }
 
   } else {
-    let reciprocityFactor = parseFloat(reciprocitySlider.value);
+    let reciprocityFactor = filmSelect.value
     let ssReciprocity = (newShutterspeedResult ** reciprocityFactor);
-    
+
     if (ssReciprocity < 60) {
       newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + " seconds");
     } else {
@@ -201,7 +200,6 @@ apertureResult.innerHTML = apertureValues[apertureSlider.value];
 newApertureResult.innerHTML = apertureValues[newApertureSlider.value];
 shutterspeedResult.innerHTML = shutterspeedValues[shutterspeedSlider.value]; 
 ndResult.innerHTML = (ndSlider.value + " stops");
-reciprocityResult.innerHTML = "1 (digital)";
 
 
 displayEv();
@@ -243,12 +241,7 @@ document.getElementById("nd").addEventListener('input',() => {
   ndResult.innerHTML = (ndSlider.value + " stops");
   displayNewShutterspeed(); 
 });
-document.getElementById("reciprocity").addEventListener('input',() => {
-  if (reciprocitySlider.value > 1){
-    reciprocityResult.innerHTML = reciprocitySlider.value;
-  } else {
-    reciprocityResult.innerHTML = "1 (digital)";
-  }
+document.getElementById("film-select").addEventListener('change',() => {
   displayNewShutterspeed(); 
 });
 
