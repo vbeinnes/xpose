@@ -1,6 +1,4 @@
 
-/*test4*/
-
 
 body {
   font-family: Marcher, Roboto, Arial;                                     
@@ -63,6 +61,16 @@ body {
   grid-template-columns: 280px;
   margin-left: 40px;
   margin-bottom: 20px;
+  /* background-color: darkgreen; */
+}
+
+.select-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 280px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  margin-top: 30px;
   /* background-color: darkgreen; */
 }
 
@@ -224,5 +232,17 @@ body {
 a {
   font-family: Marcher, Roboto, Arial;                                     
   font-size: medium;
+  color: #e6e6e6;
+}
+
+select {
+  width: 100%;
+  margin-top: 8px;
+  border: 2px solid;
+  border-radius: 0.25em;
+  padding: 8px;
+  border-color: #000000;
+  cursor: pointer;
+  background-color:#151515;
   color: #e6e6e6;
 }
