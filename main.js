@@ -159,7 +159,8 @@ function convertSeconds(seconds) {
   const hoursShown = hours > 0 ? hours + ("h ") : "";
   const minutesShown = minutes > 0 ? minutes + ("m ") : "";
   const secondsShown = remainingSeconds > 0 ? remainingSeconds + ("s ") : "";
-
+  
+  /*
   if (years > 9) {
     return "More than ten years";
 
@@ -175,7 +176,23 @@ function convertSeconds(seconds) {
   } else {
     return minutesShown + secondsShown;
   }
+  */
 
+  if (years > 0) {
+    return "More than 3 days";
+  
+  } else if (days > 2) {
+    return "More than 3 days";
+      
+  } else if (days > 0) {
+    return "Roughly " + daysShown + hoursShown;
+
+  } else if (hours > 0) {
+    return "Roughly " + hoursShown + minutesShown;
+
+  } else {
+    return minutesShown + secondsShown;
+  }
   
 }
 
