@@ -160,11 +160,11 @@ function convertSeconds(seconds) {
   const minutesShown = minutes > 0 ? minutes + ("m ") : "";
   const secondsShown = remainingSeconds > 0 ? remainingSeconds + ("s ") : "";
 
-  if (years > 1) {
-    return "More than two years";
+  if (years > 9) {
+    return "More than ten years";
 
   } else if (years > 0) {
-    return yearsShown + daysShown;
+    return "Roughly " + yearsShown + daysShown;
 
   } else if (days > 0) {
     return "Roughly " + daysShown + hoursShown;
