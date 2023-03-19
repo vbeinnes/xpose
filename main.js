@@ -101,9 +101,8 @@ function displayNewShutterspeed(){
       newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(newShutterspeedResult, shutterspeedValuesNumMap)] + "s";
     }
 
-  } else {
-    let reciprocityFactor = filmSelect.value
-    let ssReciprocity = (newShutterspeedResult ** reciprocityFactor);
+  } else {  
+    let ssReciprocity = calculateReciprocity(newShutterspeedResult);
 
     if (ssReciprocity < 60) {
       newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + " seconds");
@@ -112,6 +111,143 @@ function displayNewShutterspeed(){
     }
   }   
 }
+
+function calculateReciprocity(seconds){ // Takes ET in seconds, extends according to reciprocity failure of selected film
+  let selectedFilmStock = filmSelect.value;
+
+  switch (selectedFilmStock) {
+    case "none":
+      return seconds;
+    case "sfx":
+      return calculateSfx(seconds);
+    case "panf":
+      return calculatePanf(seconds);
+    case "d100":
+      return calculateD100(seconds);
+    case "d400":
+      return calculateD400(seconds);
+    case "d3200":
+      return calculateD3200(seconds);
+    case "fp4":
+      return calculateFp4(seconds);
+    case "hp5":
+      return calculateHp5(seconds);
+    case "xp2":
+      return calculateXp2(seconds);
+    case "k100":
+      return calculateK100(seconds);
+    case "k400":
+      return calculateK400(seconds);
+    case "portra160":
+      return calculatePortra160(seconds);
+    case "portra400":
+      return calculatePortra400(seconds);
+    case "ektar100":
+      return calculateEktar100(seconds);
+    case "ektachromeE100":
+      return calculateEktachromeE100(seconds);
+    case "velvia50":
+      return calculateVelvia50(seconds);
+
+    default:
+      // Handle error case
+      break;
+  }
+}
+
+
+function calculateSfx(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.43);
+}
+function calculatePanf(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.33);
+}
+function calculateD100(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.26);
+}
+function calculateD400(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.41);
+}
+function calculateD3200(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.33);
+}
+function calculateFp4(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.26);
+}
+function calculateHp5(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.31);
+}
+function calculateXp2(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.31);
+}
+function calculateK100(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.26);
+}
+function calculateK400(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (seconds ** 1.30);
+}
+function calculatePortra160(seconds){
+  if (seconds < 2) {
+    return seconds;
+  }
+  return (0.87 * (seconds ** 1.358));
+}
+function calculatePortra400(seconds){
+  if (seconds < 2) {
+    return seconds;
+  }
+  return (0.87 * (seconds ** 1.358));
+}
+function calculateEktar100(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (1.1 * (seconds ** 1.22));
+}
+function calculateEktachromeE100(seconds){
+  if (seconds < 1) {
+    return seconds;
+  }
+  return (((seconds+1) ** (1/0.97))-1);
+}
+function calculateVelvia50(seconds){
+  if (seconds < 3) {
+    return seconds;
+  }
+  return (0.8 * (seconds ** 1.26));
+}
+
+
 
 function mapLightConditions(ev) {
   let lightConditions = ""
