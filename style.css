@@ -220,11 +220,12 @@ select {
   margin-top: 8px;
   border: 2px solid;
   border-radius: 0.25em;
-  padding: 8px;
+  padding: 12px;
   border-color: #000000;
   cursor: pointer;
   background-color:#151515;
   color: #e6e6e6;
+  font-size: medium;
 }
 
 #newShutterspeed {
