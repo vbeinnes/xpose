@@ -26,26 +26,17 @@ function calculateEv(){
   
     let newShutterspeedResult = (25 * (f2**2))/(2**((calculateEv())-2)*iso2) * (2 ** ndValue);
   
-    if (newShutterspeedResult < 1) {
-      if (newShutterspeedResult < (1/285000)) {
-        newShutterspeed.innerHTML = "Shorter than 1/250000s";
-        warningText.innerHTML = "";
-      } else {
-        newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(newShutterspeedResult, shutterspeedValuesNumMap)] + "s";
-        warningText.innerHTML = "";
-      }
-    } else {  
-      let ssReciprocity = calculateReciprocity(newShutterspeedResult);
-      if (ssReciprocity < 60) {
-        newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + " seconds");
-        warningText.innerHTML = "";
-      } else {
-        newShutterspeed.innerHTML = convertSeconds(Math.round(ssReciprocity));
-        if (filmSelect.value == "none") {
-          warningText.innerHTML = ""; // Should only give accuracy warning when using film
-        }
-      }
-    }   
+    let ssReciprocity = calculateReciprocity(newShutterspeedResult);
+
+    if (ssReciprocity < (1/285000)) {
+      newShutterspeed.innerHTML = "Shorter than 1/250000s";
+    } else if (ssReciprocity < 1) {
+      newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(newShutterspeedResult, shutterspeedValuesNumMap)] + "s";
+    } else if (ssReciprocity < 60) {
+      newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + " seconds");
+    } else {
+      newShutterspeed.innerHTML = convertSeconds(Math.round(ssReciprocity));
+    } 
   }
   
 
@@ -86,102 +77,222 @@ function calculateEv(){
       case "velvia50":
         return calculateVelvia50(seconds);
       default:
-        // Handle error case
-        break;
+        warningText.innerHTML = "There was a problem finding info for this film";
+        return seconds;
     }
   }
   
 
   
   function calculateSfx(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.43);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.43);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculatePanf(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.33);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.33);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateD100(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.26);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.26);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateD400(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.41);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.41);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateD3200(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.33);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.33);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateFp4(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.26);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.26);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateHp5(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.31);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.31);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateXp2(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.31);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.31);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateK100(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.26);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.26);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateK400(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (seconds ** 1.30);
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (seconds ** 1.30);
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculatePortra160(seconds){
-    if (seconds < 2) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (0.87 * (seconds ** 1.358));
+    if (seconds < 2) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 2 seconds";
+      calculatedTime = seconds;
     }
-    return (0.87 * (seconds ** 1.358));
+    if (calculatedTime > (15*60)) {
+      message = "Times above 15 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculatePortra400(seconds){
-    if (seconds < 2) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (0.87 * (seconds ** 1.358));
+    if (seconds < 2) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 2 seconds";
+      calculatedTime = seconds;
     }
-    return (0.87 * (seconds ** 1.358));
+    if (calculatedTime > (15*60)) {
+      message = "Times above 15 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+  
+
   function calculateEktar100(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (1.1 * (seconds ** 1.22));
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (1.1 * (seconds ** 1.22));
+    if (calculatedTime > (35*60)) {
+      message = "Times above 35 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateEktachromeE100(seconds){
-    if (seconds < 1) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = ((seconds+1) ** (1/0.97))-1;
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
     }
-    return (((seconds+1) ** (1/0.97))-1);
+    if (calculatedTime > (10*60)) {
+      message = "Times above 10 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
+
   function calculateVelvia50(seconds){
-    if (seconds < 3) {
-      return seconds;
+    let message = " ";
+    let calculatedTime = (0.8 * (seconds ** 1.26));
+    if (seconds < 3) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 3 seconds";
+      calculatedTime = seconds;
     }
-    return (0.8 * (seconds ** 1.26));
+    if (calculatedTime > (5*60)) {
+      message = "Times above 5 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
   }
   
   
@@ -233,23 +344,18 @@ function calculateEv(){
     const secondsShown = remainingSeconds > 0 ? remainingSeconds + (" seconds ") : "";
     
     if (years > 1000) {
-        warningText.innerHTML = "Times above 24 hours are only rough estimations";
       return yearsShown;
   
     } else if (years > 0) {
-        warningText.innerHTML = "Times above 24 hours are only rough estimations";
       return yearsShown + daysShown;
   
     } else if (days > 0) {
-        warningText.innerHTML = "Times above 24 hours are only rough estimations";
       return daysShown + hoursShown;
   
     } else if (hours > 0) {
-        warningText.innerHTML = "Times above 1 hour are less accurate";
       return hoursShown + minutesShown;
   
     } else {
-        warningText.innerHTML = "Accuracy may vary slightly above 1 minute";
       return minutesShown + secondsShown;
     }
   }
