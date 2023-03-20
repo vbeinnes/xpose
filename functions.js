@@ -41,6 +41,9 @@ function calculateEv(){
         warningText.innerHTML = "";
       } else {
         newShutterspeed.innerHTML = convertSeconds(Math.round(ssReciprocity));
+        if (filmSelect.value == "none") {
+          warningText.innerHTML = ""; // Should only give accuracy warning when using film
+        }
       }
     }   
   }
@@ -230,7 +233,7 @@ function calculateEv(){
     const secondsShown = remainingSeconds > 0 ? remainingSeconds + (" seconds ") : "";
     
     if (years > 1000) {
-        warningText.innerHTML = "Are you really gonna wait that long?";
+        warningText.innerHTML = "Times above 24 hours are only rough estimations";
       return yearsShown;
   
     } else if (years > 0) {
@@ -242,7 +245,7 @@ function calculateEv(){
       return daysShown + hoursShown;
   
     } else if (hours > 0) {
-        warningText.innerHTML = "Accuracy varys above 1 hour";
+        warningText.innerHTML = "Times above 1 hour are less accurate";
       return hoursShown + minutesShown;
   
     } else {
