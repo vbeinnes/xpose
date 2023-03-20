@@ -7,31 +7,31 @@
 // Legge til flere lukkertider senere?
 // ------------------------------------------------------------------------------------------------------------------------
 
-var isoSlider = document.getElementById("iso");
-var isoResult = document.getElementById("isoResult");
+const isoSlider = document.getElementById("iso");
+const isoResult = document.getElementById("isoResult");
 
-var newIsoSlider = document.getElementById("newIso");
-var newIsoResult = document.getElementById("newIsoResult");
+const newIsoSlider = document.getElementById("newIso");
+const newIsoResult = document.getElementById("newIsoResult");
 
-var apertureSlider = document.getElementById("aperture");
-var apertureResult = document.getElementById("apertureResult");
+const apertureSlider = document.getElementById("aperture");
+const apertureResult = document.getElementById("apertureResult");
 
-var newApertureSlider = document.getElementById("newAperture");
-var newApertureResult = document.getElementById("newApertureResult");
+const newApertureSlider = document.getElementById("newAperture");
+const newApertureResult = document.getElementById("newApertureResult");
 
-var shutterspeedSlider = document.getElementById("shutterspeed");
-var shutterspeedResult = document.getElementById("shutterspeedResult");
+const shutterspeedSlider = document.getElementById("shutterspeed");
+const shutterspeedResult = document.getElementById("shutterspeedResult");
 
-var ndSlider = document.getElementById("nd");
-var ndResult = document.getElementById("ndResult");
+const ndSlider = document.getElementById("nd");
+const ndResult = document.getElementById("ndResult");
 
-var evResult = document.getElementById("ev");
+const evResult = document.getElementById("ev");
 
-var newShutterspeed = document.getElementById("newShutterspeed");
+const newShutterspeed = document.getElementById("newShutterspeed");
 
-var filmSelect = document.getElementById("film-select")
+const filmSelect = document.getElementById("film-select")
 
-var warningText = document.getElementById("warningText")
+const warningText = document.getElementById("warningText")
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Sett alle verdier fra slidere og utregnede verdier - FRA OPPSTART
