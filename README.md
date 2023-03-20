@@ -14,6 +14,8 @@ Xpose was originally created for personal use, and primarily designed for use ou
 
 ## How it works
 First, you need to measure the amount of light in your scene using a light meter in your camera or an external light meter. Then, you set the measured values into the *metered settings* section of Xpose. Next, you set your preferred settings for the actual exposure in the *new settings* section. Based on these values, Xpose calculates an appropriate exposure time (shutter speed) for your long exposure shot. If you already have a specific exposure time in mind, you can tweak the other settings until the app displays that particular exposure time.
+
+<br/> If you are shooting on film, exposure times longer than a few seconds typically need to be further extended. Unlike digital camera sensors, film has a variable sensitivity to light. The longer it is exposed to light, the less sensitive it becomes. Each kind of film reacts differently to long exposures. Some are heavily affected and need two or three times the amount of light for exposures longer than a couple of seconds, while other film stocks are almost not affected at all until several minutes.
 <br/>
 <br/>
 <br/>
@@ -32,7 +34,7 @@ EV (Exposure value) corresponds to the amount of light in your scene. The higher
 
     exposureTimeNd = exposureTime * (2 ^ ndValue)
 
-<br/> If you are shooting on film, exposure times longer than one second needs to be further extended. Unlike digital camera sensors, film has a variable sensitivity to light. The longer it is exposed to light, the less sensitive it becomes. Each film reacts differently to long exposures. Xpose uses either formulas for reciprocity failure provided by the film manufacturers themselves, or formulas created to approximate reciprocity failure data from available tables or charts. As an example, Ilford films have a simple formula provided by the manufacturer where T is the metered exposure time, Tc is the exposure time compensated for reciprocity failure, and P is a variable unique to each film stock:
+<br/> Xpose uses either formulas for reciprocity failure provided by the film manufacturers themselves, or formulas created to approximate reciprocity failure data from available tables or charts. As an example, Ilford films have a simple formula provided by the manufacturer, where T is the metered exposure time, Tc is the exposure time compensated for reciprocity failure, and P is a variable unique to each film stock:
 
     Tc = T^P for T > 1 second
 
