@@ -45,6 +45,7 @@ function calculateEv(){
     let selectedFilmStock = filmSelect.value;
     switch (selectedFilmStock) {
       case "none":
+        warningText.innerHTML = "";
         return seconds;
       case "sfx":
         return calculateSfx(seconds);
