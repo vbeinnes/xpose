@@ -22,19 +22,19 @@ First, you need to measure the amount of light in your scene using a light meter
 ## Math for nerds
 EV (Exposure value) corresponds to the amount of light in your scene. The higher the number, the brighter the scene. The EV is calculated as follows, using the aperture value *f*, the shutter speed *ss*, and the *iso* from the metered settings:
 
-    EV = Math.log2(f**2) + Math.log2(1/ss) - Math.log2(iso/100)
+    EV = Math.log2(f^2) + Math.log2(1/ss) - Math.log2(iso/100)
 
 <br/> Based on the *EV* value from the metered settings, and the aperture value *f2* and *iso2* of your preferred long exposure settings, Xpose calculates an appropriate exposure time using the following formula:
 
-    exposureTime = (25 * (f2**2))/(2**(EV-2)*iso2)
+    exposureTime = (25 * (f2^2))/(2^(EV-2)*iso2)
 
 <br/> If you are using an ND-filter for the long exposure, the exposure time is doubled for each stop of the ND-filter (given that the ND-filter was not used for metering the scene):
 
-    exposureTimeNd = exposureTime * (2 ** ndValue)
+    exposureTimeNd = exposureTime * (2 ^ ndValue)
 
-<br/> If you are shooting on film, exposure times longer than one second needs to be further extended. Unlike digital camera sensors, film has a variable sensitivity to light. The longer it is exposed to light, the less sensitive it becomes. Each film stock has a different reciprocity factor that takes this into account. You will usually find the reciprocity factor on the packaging for the film stock you are using. Xpose uses this factor to calculate the extended exposure time, which is given by the following formula:
+<br/> If you are shooting on film, exposure times longer than one second needs to be further extended. Unlike digital camera sensors, film has a variable sensitivity to light. The longer it is exposed to light, the less sensitive it becomes. Each film reacts differently to long exposures. Xpose uses either formulas for reciprocity failure provided by the film manufacturers themselves, or formulas created to approximate reciprocity failure data from available tables or charts. As an example, Ilford films have a simple formula provided by the manufacturer where T is the metered exposure time, Tc is the exposure time compensated for reciprocity failure, and P is a variable unique to each film stock:
 
-    ExposureTimeReciprocity = (exposureTime ** reciprocityFactor)
+    Tc = T^P for T > 1 second
 
 
 
