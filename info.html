@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xpose - information</title>
+
+  <!-- Henter CSS-->
+  <link rel="stylesheet" href="info.css">
+  <link href="https://fonts.cdnfonts.com/css/marcher" rel="stylesheet">       
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M0D0DQ97L4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M0D0DQ97L4');
+  </script>
+  </head>
+
+  <body>
+
+    <div class="spacer">
+    </div>
+    <h1>
+      About Xpose
+    </h1>
+    <p>
+      Xpose is a tool designed to help calculate long exposure times in photography. 
+      It is particularly usefull when using ND-filters, or when shooting film when you have to take reciprocity failure into account.
+    </p>
+    <p>
+      Created by Vebjørn Beinnes december 2022, and sporadically updated. 
+      Feel free to send questions and feedback to <a href="mailto:xpose.feedback@protonmail.com">xpose.feedback@protonmail.com</a>
+    </p>
+    <div class="spacer">
+    </div>
+    <h1>
+      How to use it
+    </h1>
+    <p>
+      First, you need to measure the amount of light in your scene using a light meter in your camera or an external light meter. 
+      Then, you set the measured values into the <i>metered settings</i> section of Xpose. Next, 
+      you set your preferred settings for the actual exposure in the <i>new settings</i> section. Based on these values, 
+      Xpose calculates an appropriate exposure time (shutter speed) for your long exposure shot. If you already have a specific 
+      exposure time in mind, you can tweak the other settings until the app displays that particular exposure time.
+    </p>
+    <div class="spacer">
+    </div>
+    <h1>
+      How the exposure time is calculated
+    </h1>
+    <p>
+      EV (Exposure value) corresponds to the amount of light in your scene. The higher the number, the brighter the scene. 
+      The EV is calculated as follows, using the aperture value <i>f</i>, the shutter speed <i>ss</i>, and the <i>iso</i> from the metered settings:
+    </p>
+    <p class="formula">
+      EV = log<sub>2</sub> (f<sup>2</sup>) + log<sub>2</sub> (1/ss) - log<sub>2</sub> (iso/100)
+    </p>
+    <p>
+      Based on the <i>EV</i> value from the metered settings, and the aperture value <i>f2</i> and <i>iso2</i> of your preferred 
+      long exposure settings, Xpose calculates an appropriate exposure time <i>ET</i> using the following formula:
+    </p>
+    <p class="formula">
+      ET = (25 * f2<sup>2</sup>) / (2^<sup>EV-2</sup> * iso2)
+    </p>
+    <p>
+      If you are using an ND-filter for the long exposure, the exposure time is doubled for each stop of the ND-filter 
+      (given that the ND-filter was not used for metering the scene). Using the stop-value <i>n</i> of the ND-filter, and the already 
+      calculated <i>ET</i>, we find the new exposure time <i>ET<sub>nd</sub></i> compensated for the ND-filter using the following formula:
+    </p>
+    <p class="formula">
+      ET<sub>nd</sub> = ET * 2<sup>n</sup> <!-- Fortsett her! med formatering av tekst -->
+    </p>
+
+    <h2>
+      Reciprocity failure for film photography
+    </h2>
+    <p>
+      If you are shooting on film, exposure times longer than a few seconds typically need to be further extended. 
+      Unlike digital camera sensors, film has a variable sensitivity to light. The longer it is exposed to light, 
+      the less sensitive it becomes. Each kind of film reacts differently to long exposures. Some are heavily affected and 
+      need two or three times the amount of light for exposures longer than a couple of seconds, while other film stocks are 
+      almost not affected at all until several minutes.
+    </p>
+    <p>
+      Xpose uses either formulas for reciprocity failure provided by the film manufacturers themselves, or mathematical formulas created to 
+      approximate reciprocity failure data from available tables or charts. Please note that the film manufacturers typically only provide 
+      information about reciprocity failure compensation up to a couple of minutes. Calculated times longer than that are estimated from the 
+      available data, and get less and less accurate the longer they are. However, this is helped by the fact that it gets decreasingly important 
+      to be really accurate with the exposure time the longer it gets (when shooting film). Also, note that when shooting color film, the different 
+      color layers of the film might react slightly differently in terms of reciprocity failure, which could result in color shifts in the final image. 
+      There are special filters you can use in front of the lens to negate this effect.
+    </p>
+
+    <p>
+      The formulas Xpose uses to calculate the extended exposure times for each film stock will be added here shortly.
+    </p>
+
+    <!-- 
+    <p>
+      Below are the formulas Xpose uses to calculate the extended exposure times for each film stock.
+      The same variables are used in all of the formulas: <i>T</i> is the calculated exposure time you would use with a digital camera, while 
+      <i>T<sub>c</sub></i> is the extended exposure time compensated for reciprocity failure.
+    </p>
+
+
+     -->
+
+  </body>
+</html>
