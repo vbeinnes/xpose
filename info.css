@@ -1,0 +1,48 @@
+  
+  body {
+    max-width: 660px;
+    margin: 0 auto; /* Add this line to center the content */
+    padding: 20px;
+
+    font-family: Marcher, Roboto, Arial;                                     
+    font-size: medium;
+    color: #e6e6e6;
+    background-color:#333333;
+    justify-content: center;
+  }
+
+  h1 {
+    color: #e6e6e6;
+    font-size: x-large;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    color: #e6e6e6;
+    font-size: large;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: medium;
+    line-height: 1.5;
+    margin: 0 0 20px;
+  }
+
+  a {
+    color: #e6e6e6;
+    font-size: medium;
+    line-height: 1.5;
+    margin: 0 0 20px;
+  }
+
+  .spacer {
+    height: 20px;
+  }
+
+  .formula {
+    color: #ec9f9f;
+    margin-left: 20px;
+    margin-top: -15px;
+    margin-bottom: 20px;
+  }
