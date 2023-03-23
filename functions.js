@@ -45,7 +45,7 @@ function calculateEv(){
     let selectedFilmStock = filmSelect.value;
     switch (selectedFilmStock) {
       case "none":
-        warningText.innerHTML = "";
+        warningText.innerHTML = "&nbsp;";
         return seconds;
       case "sfx":
         return calculateSfx(seconds);
@@ -86,7 +86,7 @@ function calculateEv(){
 
   
   function calculateSfx(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.43);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -100,7 +100,7 @@ function calculateEv(){
   }
 
   function calculatePanf(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.33);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -114,7 +114,7 @@ function calculateEv(){
   }
 
   function calculateD100(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.26);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -128,7 +128,7 @@ function calculateEv(){
   }
 
   function calculateD400(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.41);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -142,7 +142,7 @@ function calculateEv(){
   }
 
   function calculateD3200(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.33);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -156,7 +156,7 @@ function calculateEv(){
   }
 
   function calculateFp4(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.26);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -170,7 +170,7 @@ function calculateEv(){
   }
 
   function calculateHp5(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.31);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -184,7 +184,7 @@ function calculateEv(){
   }
 
   function calculateXp2(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.31);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -198,7 +198,7 @@ function calculateEv(){
   }
 
   function calculateK100(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.26);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -212,7 +212,7 @@ function calculateEv(){
   }
 
   function calculateK400(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (seconds ** 1.30);
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -226,7 +226,7 @@ function calculateEv(){
   }
 
   function calculatePortra160(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (0.87 * (seconds ** 1.358));
     if (seconds < 2) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 2 seconds";
@@ -240,7 +240,7 @@ function calculateEv(){
   }
 
   function calculatePortra400(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (0.87 * (seconds ** 1.358));
     if (seconds < 2) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 2 seconds";
@@ -255,7 +255,7 @@ function calculateEv(){
   
 
   function calculateEktar100(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (1.1 * (seconds ** 1.22));
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -269,7 +269,7 @@ function calculateEv(){
   }
 
   function calculateEktachromeE100(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = ((seconds+1) ** (1/0.97))-1;
     if (seconds < 1) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 1 second";
@@ -283,7 +283,7 @@ function calculateEv(){
   }
 
   function calculateVelvia50(seconds){
-    let message = " ";
+    let message = "&nbsp;";
     let calculatedTime = (0.8 * (seconds ** 1.26));
     if (seconds < 3) { // Not affected by reciprocity failure
       message = "Not affected by reciprocity failure until 3 seconds";
