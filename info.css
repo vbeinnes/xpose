@@ -7,20 +7,21 @@
     font-family: Marcher, Roboto, Arial;                                     
     font-size: medium;
     color: #e6e6e6;
-    background-color:#333333;
+    background-color:#272727;
     justify-content: center;
   }
 
   h1 {
-    color: #e6e6e6;
+    color: #e0b676;
     font-size: x-large;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   h2 {
-    color: #e6e6e6;
+    color: #e0b676;
     font-size: large;
     margin-bottom: 20px;
+    margin-top: 40px;
   }
   
   p {
@@ -37,12 +38,22 @@
   }
 
   .spacer {
-    height: 20px;
+    height: 10px;
   }
 
   .formula {
-    color: #ec9f9f;
+    background-color: #1f1f1f;
+    color: #e6e6e6;
+    /*
     margin-left: 20px;
-    margin-top: -15px;
+
     margin-bottom: 20px;
+    */
+    margin-top: -10px;
+    margin-bottom: 25px;
+    padding: 10px 10px 10px 20px;
   }
+
+.backbutton {
+  margin-bottom: 50px;
+}
