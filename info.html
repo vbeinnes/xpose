@@ -64,16 +64,16 @@
       EV (Exposure value) corresponds to the amount of light in your scene. The higher the number, the brighter the scene. 
       The EV is calculated as follows, using the aperture value <i>f</i>, the shutter speed <i>ss</i>, and the <i>iso</i> from the metered settings:
     </p>
-    <div class="film-formula-container">
+    <div class="formula-container">
       <p class="formula">
-        EV = log<sub>2</sub> (f<sup> 2</sup>) + log<sub>2</sub> (1/ss) - log<sub>2</sub> (iso/100)
+        EV = log<sub>2</sub>(f<sup> 2</sup>) + log<sub>2</sub>(1/ss) - log<sub>2</sub>(iso/100)
       </p>
     </div>
     <p>
       Based on the <i>EV</i> value from the metered settings, and the aperture value <i>f2</i> and <i>iso2</i> of your preferred 
       long exposure settings, Xpose calculates an appropriate exposure time <i>ET</i> using the following formula:
     </p>
-    <div class="film-formula-container">
+    <div class="formula-container">
       <p class="formula">
         ET = (25 * f2<sup> 2</sup>) / (2^<sup> EV-2</sup> * iso2)
       </p>
@@ -83,7 +83,7 @@
       (given that the ND-filter was not used for metering the scene). Using the stop-value <i>n</i> of the ND-filter, and the already 
       calculated <i>ET</i>, we find the new exposure time <i>ET<sub>nd</sub></i> compensated for the ND-filter using the following formula:
     </p>
-    <div class="film-formula-container">
+    <div class="formula-container">
       <p class="formula">
         ET<sub>nd</sub> = ET * 2<sup> n</sup>
       </p>
@@ -117,183 +117,138 @@
       <i>T<sub>c</sub></i> is the extended exposure time compensated for reciprocity failure.
     </p>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford SFX
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford SFX:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.43</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.43</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford Pan F+
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford Pan F+:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.33</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.33</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford D100
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford D100:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.26</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.26</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford D400
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford D400:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.41</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.41</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford D3200
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford D3200:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.33</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.33</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford FP4+
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford FP4+:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.26</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.26</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford HP5+
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford HP5+:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.31</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.31</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford XP2
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford XP2:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.31</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.31</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford K100
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford K100:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.26</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.26</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Ilford K400
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Ilford K400:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = T<sup> 1.30</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = T<sup> 1.30</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Kodak Portra 160
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Kodak Portra 160:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = 0.87 * T<sup> 1.358</sup>
-      </p>
-      <p class="formula">
-        for T > 2 seconds
+        T<sub>c</sub> = 0.87 * T<sup> 1.358</sup> &emsp;&emsp; for T > 2 seconds
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Kodak Portra 400
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Kodak Portra 400:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = 0.87 * T<sup> 1.358</sup>
-      </p>
-      <p class="formula">
-        for T > 2 seconds
+        T<sub>c</sub> = 0.87 * T<sup> 1.358</sup> &emsp;&emsp; for T > 2 seconds
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Kodak Ektar 100
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Kodak Ektar 100:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = 1.1 * T<sup> 1.22</sup>
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = 1.1 * T<sup> 1.22</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Kodak Ektachrome E100
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Kodak Ektachrome E100:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = (T + 1)<sup> 1/0.97</sup> - 1
-      </p>
-      <p class="formula">
-        for T > 1 second
+        T<sub>c</sub> = (T + 1)<sup> 1/0.97</sup> - 1 &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
-    <div class="film-formula-container">
+    <p class="formula">
+      Fujifilm Velvia 50
+    </p>
+    <div class="formula-container">
       <p class="formula">
-        Fujifilm Velvia 50:
-      </p>
-      <p class="formula">
-        T<sub>c</sub> = 0.8 * T<sup> 1.26</sup>
-      </p>
-      <p class="formula">
-        for T > 3 seconds
+        T<sub>c</sub> = 0.8 * T<sup> 1.26</sup> &emsp;&emsp; for T > 3 seconds
       </p>
     </div>
 
