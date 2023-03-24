@@ -75,6 +75,10 @@ function calculateEv(){
         return calculateEktar100(seconds);
       case "ektachromeE100":
         return calculateEktachromeE100(seconds);
+      case "tmax":
+        return calculateTmax(seconds);
+      case "trix":
+        return calculateTrix(seconds);
       case "velvia50":
         return calculateVelvia50(seconds);
       default:
@@ -277,6 +281,34 @@ function calculateEv(){
     }
     if (calculatedTime > (10*60)) {
       message = "Times above 10 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
+  }
+
+  function calculateTmax(seconds){
+    let message = "&nbsp;";
+    let calculatedTime = (1.15 * (seconds ** 1.12));
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
+    }
+    if (calculatedTime > (5*60)) {
+      message = "Times above 5 minutes are only rough estimations";
+    }
+    warningText.innerHTML = message;
+    return calculatedTime;
+  }
+
+  function calculateTrix(seconds){
+    let message = "&nbsp;";
+    let calculatedTime = (1.8 * (seconds ** 1.42));
+    if (seconds < 1) { // Not affected by reciprocity failure
+      message = "Not affected by reciprocity failure until 1 second";
+      calculatedTime = seconds;
+    }
+    if (calculatedTime > (30*60)) {
+      message = "Times above 30 minutes are only rough estimations";
     }
     warningText.innerHTML = message;
     return calculatedTime;

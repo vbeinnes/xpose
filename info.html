@@ -36,12 +36,27 @@
       About Xpose
     </h1>
     <p>
-      Xpose is a tool designed to help calculate long exposure times in photography. 
-      It is particularly usefull when using ND-filters, or when shooting film when you have to take reciprocity failure into account.
+      Xpose is a tool for calculating long exposure times in photography. 
+      It is particularly usefull when using ND-filters, or when shooting film where you have to take reciprocity failure into account.
+    </p>
+    <p>
+      Disclaimer: The long exposure times calculated by Xpose are intended for guidance only. 
+      While every effort has been made to ensure the accuracy of the calculations, perfect results cannot be guaranteed. 
+      Please use your own judgement when setting your camera's exposure time, 
+      and be aware that there may be other factors that can affect the outcome of your photo. This is particularly true for film photography, where 
+      there are a lot of factors affecting the final image, like the developing process, the age of the film, reciprocity failure etc.
     </p>
     <p>
       Created by Vebjørn Beinnes december 2022, and sporadically updated. 
-      Feel free to send questions or feedback to <a href="mailto:xpose.feedback@protonmail.com">xpose.feedback@protonmail.com</a>
+    </p>
+    <div class="spacer">
+    </div>
+    <h1>
+      Feedback
+    </h1>
+    <p>
+      You are welcome to send questions or feedback to <a href="mailto:xpose.feedback@protonmail.com">xpose.feedback@protonmail.com</a>, 
+      and every effort will be made to be of assistance.
     </p>
     <div class="spacer">
     </div>
@@ -49,11 +64,11 @@
       How to use it
     </h1>
     <p>
-      First, you need to measure the amount of light in your scene using a light meter in your camera or an external light meter. 
-      Then, you set the measured values into the <i>metered settings</i> section of Xpose. Next, 
-      you set your preferred settings for the actual exposure in the <i>new settings</i> section. Based on these values, 
-      Xpose calculates an appropriate exposure time (shutter speed) for your long exposure shot. If you already have a specific 
-      exposure time in mind, you can tweak the other settings until the app displays that particular exposure time.
+      First, you measure the amount of light in your scene using the light meter in your camera or an external light meter. 
+      Then, you set the sliders under <i>metered settings</i> to the values the camera or light meter suggested. Next, 
+      set your preferred settings for the actual long exposure with the sliders under <i>long exposure settings</i>. Based on these values, 
+      Xpose calculates an appropriate exposure time for your long exposure shot. If you already have a specific 
+      exposure time in mind, you can tweak the other settings until the <i>calculated exposure time</i> matches that particular exposure time.
     </p>
     <div class="spacer">
     </div>
@@ -61,7 +76,7 @@
       How the exposure time is calculated
     </h1>
     <p>
-      EV (Exposure value) corresponds to the amount of light in your scene. The higher the number, the brighter the scene. 
+      Exposure value, or EV, corresponds to the amount of light in your scene. The higher the number, the brighter the scene. 
       The EV is calculated as follows, using the aperture value <i>f</i>, the shutter speed <i>ss</i>, and the <i>iso</i> from the metered settings:
     </p>
     <div class="formula-container">
@@ -97,16 +112,20 @@
       Unlike digital camera sensors, film has a variable sensitivity to light. The longer it is exposed to light, 
       the less sensitive it becomes. Each kind of film reacts differently to long exposures. Some are heavily affected and 
       need two or three times the amount of light for exposures longer than a couple of seconds, while other film stocks are 
-      almost not affected at all until several minutes.
+      barely affected even when exposing for several minutes.
     </p>
     <p>
-      Xpose uses either formulas for reciprocity failure provided by the film manufacturers themselves, or mathematical formulas created to 
+      Xpose uses either formulas for reciprocity failure provided by the film manufacturers, or mathematical formulas created to 
       approximate reciprocity failure data from available tables or charts. Please note that the film manufacturers typically only provide 
-      information about reciprocity failure compensation up to a couple of minutes. Calculated times longer than that are estimated from the 
-      available data, and get less and less accurate the longer they are. However, this is helped by the fact that it gets decreasingly important 
-      to be really accurate with the exposure time the longer it gets (when shooting film). Also, note that when shooting color film, the different 
-      color layers of the film might react slightly differently in terms of reciprocity failure, which could result in color shifts in the final image. 
-      There are special filters you can use in front of the lens to negate this effect.
+      information about reciprocity failure compensation for exposure times up to a couple of minutes. Calculated times longer than that are 
+      estimated from the available data, and are decreasingly accurate the longer they are. However, this is helped by the fact that it gets 
+      decreasingly important 
+      to be precise with the exposure time the longer it gets (when shooting film).
+    </p>
+    <p>
+      Also, note that when shooting color film, the separate color layers of the film might be affected differently by 
+      reciprocity failure, which could result in color shifts in the final image. You can use different color filters in front of 
+      the lens to counteract this effect.
     </p>
     <h2>
       Formulas used for each film stock
@@ -240,6 +259,26 @@
     <div class="formula-container">
       <p class="formula">
         T<sub>c</sub> = (T + 1)<sup> 1/0.97</sup> - 1 &emsp;&emsp; for T > 1 second
+      </p>
+    </div>
+
+    <p class="formula"> <!-- T-MAX 100 -->
+      Kodak T-MAX 100
+    </p>
+    <div class="formula-container">
+      <p class="formula">
+        T<sub>c</sub> = 1.15 * T<sup> 1.12</sup> &emsp;&emsp; for T > 1 second
+      </p>
+    </div>
+
+    <!-- For 400: T^1.24 for T > 50 sek -->
+
+    <p class="formula">
+      Kodak TRI-X
+    </p>
+    <div class="formula-container">
+      <p class="formula">
+        T<sub>c</sub> = 1.8 * T<sup> 1.42</sup> &emsp;&emsp; for T > 1 second
       </p>
     </div>
 
