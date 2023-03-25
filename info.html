@@ -262,7 +262,7 @@
       </p>
     </div>
 
-    <p class="formula"> <!-- T-MAX 100 -->
+    <p class="formula">
       Kodak T-MAX 100
     </p>
     <div class="formula-container">
@@ -271,7 +271,22 @@
       </p>
     </div>
 
-    <!-- For 400: T^1.24 for T > 50 sek -->
+    <!-- For T-MAX 400: T^1.24 for T &#8805; (større eller lik) 50 sek -->
+    <!-- 0.067 (x+15.3)^(1.825)- 9.7 for 1s < T < 50 sek -->
+
+    <p class="formula">
+      Kodak T-MAX 400
+    </p>
+    <div class="formula-container">
+      <p class="formula">
+        T<sub>c</sub> = 0.067 * (T + 15.3)<sup> 1.825</sup> - 9.7&emsp;&emsp; for 1s &#60; T &#60; 50 s
+      </p>
+    </div>
+    <div class="formula-container" id="connected-formula">
+      <p class="formula">
+        T<sub>c</sub> = T<sup> 1.24</sup> &emsp;&emsp; for T &#8805; 50 seconds
+      </p>
+    </div>
 
     <p class="formula">
       Kodak TRI-X
