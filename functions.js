@@ -12,8 +12,8 @@ function calculateEv(){
 
 
   function displayEv() {
-    let wholeNumberEv = Math.round(calculateEv());
-    evResult.innerHTML =  wholeNumberEv + mapLightConditions(wholeNumberEv);  
+    let numberEv = Math.round(10 * calculateEv()) / 10;
+    evResult.innerHTML =  numberEv + mapLightConditions(numberEv);  
     // Displays EV rounded to whole number
   }
   
@@ -31,7 +31,7 @@ function calculateEv(){
     if (ssReciprocity < (1/285000)) {
       newShutterspeed.innerHTML = "Shorter than 1/250000s";
     } else if (ssReciprocity < 1) {
-      newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(newShutterspeedResult, shutterspeedValuesNumMap)] + "s";
+      newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(ssReciprocity, shutterspeedValuesNumMap)] + "s";
     } else if (ssReciprocity < 60) {
       newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + " seconds");
     } else {
