@@ -22,7 +22,7 @@ body {
 
 .divider-container-1 {
   background-color: #14253e;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   width: 360px;
   border-style: solid;
   border-color: transparent;
@@ -40,7 +40,7 @@ body {
 
 .divider-container-2 {
   background-color: #14253e;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   width: 360px;
   border-style: solid;
   border-color: transparent;
@@ -107,7 +107,7 @@ body {
   justify-content: left;
   align-items: center;
   font-size: medium;
-  font-weight: 700;
+  /*font-weight: 700;*/
   margin-bottom: 10px;
   /* background-color: darkslategrey; */
 }
@@ -189,7 +189,7 @@ body {
 
 .title-description-container {
   width: 280px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 
   padding-top: 4px;
   padding-left: 40px;
