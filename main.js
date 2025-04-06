@@ -7,6 +7,9 @@
 // Legge til flere lukkertider senere?
 // ------------------------------------------------------------------------------------------------------------------------
 
+let apertureValues = normalApertureValues;
+let newApertureValues = normalApertureValues;
+
 const isoSlider = document.getElementById("iso");
 const isoResult = document.getElementById("isoResult");
 
@@ -18,6 +21,7 @@ const apertureResult = document.getElementById("apertureResult");
 
 const newApertureSlider = document.getElementById("newAperture");
 const newApertureResult = document.getElementById("newApertureResult");
+const pinholeModeCheckbox = document.getElementById("pinholeMode");
 
 const shutterspeedSlider = document.getElementById("shutterspeed");
 const shutterspeedResult = document.getElementById("shutterspeedResult");
@@ -81,8 +85,13 @@ document.getElementById("newIso").addEventListener('input',() => {
   displayNewShutterspeed();  
 });
 document.getElementById("newAperture").addEventListener('input',() => {
-  newApertureResult.innerHTML = apertureValues[newApertureSlider.value];
+  newApertureResult.innerHTML = newApertureValues[newApertureSlider.value];
   displayNewShutterspeed(); 
+});
+document.getElementById("pinholeMode").addEventListener('change', () => {
+  updateNewApertureValues();
+  newApertureResult.innerHTML = newApertureValues[newApertureSlider.value];
+  displayNewShutterspeed();
 });
 document.getElementById("nd").addEventListener('input',() => {
   ndResult.innerHTML = (ndSlider.value + " stops");

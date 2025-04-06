@@ -16,12 +16,31 @@ function calculateEv(){
     evResult.innerHTML =  numberEv + mapLightConditions(numberEv);  
     // Displays EV rounded to whole number
   }
-  
+
+
+
+  // Updates aperture slider based on pinhole-checkbox
+  function updateNewApertureValues() {
+    if (pinholeModeCheckbox.checked) {
+      newApertureValues = apertureValuesPinhole;  // Switch to pinhole values
+    } else {
+      newApertureValues = normalApertureValues;  // Switch back to normal values
+    }
+    updateNewApertureSlider();
+  }
+  // Updates aperture slider min, max and start values based on pinhole-checkbox
+  function updateNewApertureSlider() {
+    const currentApertureValues = pinholeModeCheckbox.checked ? apertureValuesPinhole : normalApertureValues;
+    newApertureSlider.max = currentApertureValues.length - 1;
+    newApertureSlider.value = 0;
+    newApertureResult.innerHTML = currentApertureValues[0];
+  }
+
 
 
   function displayNewShutterspeed(){
     let iso2 = parseInt(isoValues[newIsoSlider.value]);
-    let f2 = parseFloat(apertureValues[newApertureSlider.value]);
+    let f2 = parseFloat(newApertureValues[newApertureSlider.value]);
     let ndValue = parseInt(ndSlider.value);
     let evCompValue = parseFloat(evCompValuesNum[evCompSlider.value]);
   
