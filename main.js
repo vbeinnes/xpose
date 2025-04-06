@@ -25,6 +25,9 @@ const shutterspeedResult = document.getElementById("shutterspeedResult");
 const ndSlider = document.getElementById("nd");
 const ndResult = document.getElementById("ndResult");
 
+const evCompSlider = document.getElementById("evComp");
+const evCompResult = document.getElementById("evCompResult");
+
 const evResult = document.getElementById("ev");
 
 const newShutterspeed = document.getElementById("newShutterspeed");
@@ -41,7 +44,8 @@ isoResult.innerHTML = isoValues[isoSlider.value];
 newIsoResult.innerHTML = isoValues[newIsoSlider.value];
 apertureResult.innerHTML = apertureValues[apertureSlider.value];
 newApertureResult.innerHTML = apertureValues[newApertureSlider.value];
-shutterspeedResult.innerHTML = shutterspeedValues[shutterspeedSlider.value]; 
+shutterspeedResult.innerHTML = shutterspeedValues[shutterspeedSlider.value];
+evCompResult.innerHTML = evCompValues[evCompSlider.value];
 ndResult.innerHTML = (ndSlider.value + " stops");
 
 
@@ -82,6 +86,10 @@ document.getElementById("newAperture").addEventListener('input',() => {
 });
 document.getElementById("nd").addEventListener('input',() => {
   ndResult.innerHTML = (ndSlider.value + " stops");
+  displayNewShutterspeed(); 
+});
+document.getElementById("evComp").addEventListener('input',() => {
+  evCompResult.innerHTML = evCompValues[evCompSlider.value];
   displayNewShutterspeed(); 
 });
 document.getElementById("film-select").addEventListener('change',() => {

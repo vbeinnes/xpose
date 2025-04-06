@@ -23,8 +23,9 @@ function calculateEv(){
     let iso2 = parseInt(isoValues[newIsoSlider.value]);
     let f2 = parseFloat(apertureValues[newApertureSlider.value]);
     let ndValue = parseInt(ndSlider.value);
+    let evCompValue = parseFloat(evCompValuesNum[evCompSlider.value]);
   
-    let newShutterspeedResult = (25 * (f2**2))/(2**((calculateEv())-2)*iso2) * (2 ** ndValue);
+    let newShutterspeedResult = (25 * (f2**2))/(2**((calculateEv())-2)*iso2) * (2 ** ndValue) * (2 ** evCompValue);
   
     let ssReciprocity = calculateReciprocity(newShutterspeedResult);
 
