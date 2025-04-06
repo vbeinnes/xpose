@@ -44,6 +44,10 @@ const warningText = document.getElementById("warningText")
 // Sett alle verdier fra slidere og utregnede verdier - FRA OPPSTART
 // ------------------------------------------------------------------------------------------------------------------------
 
+// Flips the shutter speed lists
+const { values: shutterspeedValues, nums: shutterspeedValuesNum } = getShutterspeedLists(true);
+
+
 isoResult.innerHTML = isoValues[isoSlider.value];
 newIsoResult.innerHTML = isoValues[newIsoSlider.value];
 apertureResult.innerHTML = apertureValues[apertureSlider.value];

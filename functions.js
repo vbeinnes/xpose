@@ -1,5 +1,11 @@
 
-
+// Flipping the shutter speed lists if needed
+function getShutterspeedLists(reverse = false) {
+  return {
+    values: reverse ? [...shutterspeedValuesRaw].reverse() : [...shutterspeedValuesRaw],
+    nums: reverse ? [...shutterspeedValuesNumRaw].reverse() : [...shutterspeedValuesNumRaw],
+  };
+}
 
 function calculateEv(){
     let iso = parseInt(isoValues[isoSlider.value]);
@@ -51,7 +57,7 @@ function calculateEv(){
     if (ssReciprocity < (1/285000)) {
       newShutterspeed.innerHTML = "Shorter than 1/250000s";
     } else if (ssReciprocity < 1) {
-      newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(ssReciprocity, shutterspeedValuesNumMap)] + "s";
+      newShutterspeed.innerHTML = shutterspeedValues[mapToClosestShutterspeedIndex(ssReciprocity, shutterspeedValuesNum)] + "s";
     } else if (ssReciprocity < 60) {
       newShutterspeed.innerHTML = (ssReciprocity.toFixed(1)  + " seconds");
     } else {
